@@ -15,3 +15,5 @@ Write the ShellSort, SelecitonSort and MergeSort and InsertionSort
 
 
 Task 3:
+(A)
+(B) - Merge sort but take down a smaller run time, O(log n + n)?

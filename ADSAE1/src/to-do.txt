@@ -1,0 +1,17 @@
+Task 1:
+A is complete
+B not complete
+C not complete
+
+
+
+
+Task 2:
+Organize the sorts so that its easy to compare them together
+Write the ShellSort, SelecitonSort and MergeSort and InsertionSort
+
+
+
+
+
+Task 3:

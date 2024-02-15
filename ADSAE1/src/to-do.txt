@@ -2,6 +2,7 @@ Task 1:
 A is complete (QuickSort with Partition) Tested and works
 B is complete (QuickSort with InsertionSort) Tested and works
 C is complete (QuickSort Threeway) Tested and works
+CHECK IF IT SORTS
 
 
 
@@ -15,7 +16,8 @@ Write the ShellSort, SelecitonSort and MergeSort and InsertionSort
 - ShellSort is written
 
 
-
+Put all the data sets in the main program and run them, take screenshots and plot in python to make graphs. Sort the graphs by each data set
+and show each algorithm inside the data set. Briefly talk about each time complexity
 
 
 
@@ -23,6 +25,9 @@ Write the ShellSort, SelecitonSort and MergeSort and InsertionSort
 Task 3:
 (A) Completed and explained in the document
 (B) - Merge sort but take down a smaller run time, O(n)? The TaskThreeB.java is not working. The array needs to be reversed.
+Use heap sort to sort for the complexity of (o log i) which is smaller because in most cases i << n
 
 
+
+Before submission:
 REMOVE PATH ON SUBMISSION

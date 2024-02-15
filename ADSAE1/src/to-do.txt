@@ -1,6 +1,6 @@
 Task 1:
 A is complete
-B not complete
+B is complete (not tested)
 C not complete
 
 

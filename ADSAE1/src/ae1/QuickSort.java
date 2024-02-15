@@ -1,3 +1,5 @@
+package ae1;
+
 public class QuickSort {
     //partition and quicksort as methods
     //implement testing 
@@ -18,14 +20,17 @@ public class QuickSort {
 
         return i+1;
     }
-    public static void quicksort(int[] A, int p, int r){
+    public static void quicksortpart(int[] A, int p, int r){
         //edit the existing array
+        //Part A
         if(p < r){
             int q = partition(A, p, r);
-            quicksort(A, p, q-1);
-            quicksort(A, q+1, r);
+            quicksortpart(A, p, q-1);
+            quicksortpart(A, q+1, r);
         }
     }
+
+
     public static int[] insertionsort(int[] arr){
         int n = arr.length -1;
         for(int j =1; j<=n; j++){
@@ -39,9 +44,21 @@ public class QuickSort {
         }
         return arr;
     }
+    public static void quickSortWithInsertion(int[] A, int p, int r, int k, boolean first){
+        if(p < r && r-p >= k){
+            int q = partition(A, p, r);
+            quickSortWithInsertion(A, p, q-1, k, false);
+            quickSortWithInsertion(A, q+1, r, k, false);
+
+        }
+        if(first){
+            insertionsort(A);
+        }
+
+    }
     public static void main(String[] args){
         int[] lst = {6,2,78,23,2,57,2,8};
-        quicksort(lst,0,7);
+        quicksortpart(lst,0,7);
         for(int num : lst){
             System.out.print(num + ",");
         }

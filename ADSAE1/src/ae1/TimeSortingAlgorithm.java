@@ -1,3 +1,5 @@
+package ae1;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,7 +15,6 @@ public class TimeSortingAlgorithm {
         //SelectionSort
         //MergeSort
         //Task 3 Merge Sort
-
         // Loop through each file name
         for (String fileName : fileNames) {
             System.out.println("Time taken to sort " + fileName + ":");

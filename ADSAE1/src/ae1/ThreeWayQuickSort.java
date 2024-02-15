@@ -10,38 +10,34 @@ public class ThreeWayQuickSort {
         A[j] = temp;
     }
 
-    public static void partition(int[] A, int low, int high, int i, int j){
-        if(high - low <=1){
-            if(A[high] < A[low]){
-                swap(A, high, low);
+    public static void partition(int A[], int low, int high, int[] pivotIndices){
+        int pivot = A[high];
+        int i = low;
+        int mid = low;
+        int j = high;
+
+        while (mid <= j) {
+            if (A[mid] < pivot) {
+                swap(A, i++, mid++);
+            } else if (A[mid] == pivot) {
+                mid++;
+            } else { // A[mid] > pivot
+                swap(A, mid, j--);
             }
-        i = low;
-        j = high;
-        return;
         }
-    int mid = low;
-    int pivot = A[high];
-    while(mid <= high){
-        if(A[mid] < pivot){
-            swap(A, low++, mid++);
-        }
-        else if(A[mid] == pivot){
-            mid++;
-        }
-        else if(A[mid] > pivot){
-            swap(A,mid,high--);
-        }
+
+        pivotIndices[0] = i - 1;
+        pivotIndices[1] = mid;
     }
-    i = low-1;
-    j = mid;
-    }   
+
+       
     public static void QuickSort(int[] A,int low, int high){
         if(low>=high){
             return;
         }
-        int i = low, j = high;
-        partition(A, low, high, i, j);
-        QuickSort(A,low,i);
-        QuickSort(A,j,high);
+        int[] pivotIndices = new int[2];
+        partition(A, low, high, pivotIndices);
+        QuickSort(A,low,pivotIndices[0]);
+        QuickSort(A, pivotIndices[1], high);
     }
 }

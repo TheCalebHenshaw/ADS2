@@ -9,14 +9,15 @@ import java.util.List;
 import java.nio.file.*;
 
 public class TimeSortingAlgorithm {
+    static String path = "C:/Users/Caleb/Workspace/ADS2/ADSAE1/src/ae1/"; //remove on submission
     public static void main(String[] args) {
-        String[] fileNames = {"C:/Users/Caleb/Workspace/ADS2/ADSAE1/src/ae1/dutch.txt"}; // List of file names to read arrays from
+        String[] fileNames = {"dutch.txt"}; // List of file names to read arrays from
 
         for (String fileName : fileNames) {
             System.out.println("Time taken to sort " + fileName + ":");
 
             // Read array from file
-            int[] array = readArrayFromFile(fileName);
+            int[] array = readArrayFromFile(path+fileName);
 
             // Measure time taken by each sorting algorithm
 
@@ -24,7 +25,7 @@ public class TimeSortingAlgorithm {
             long startTime, endTime;
             startTime = System.currentTimeMillis();
             int[] sortedArrayInsertionSort = Arrays.copyOf(array, array.length);
-            InsertionSort.insertionSort(sortedArrayInsertionSort);
+            //InsertionSort.insertionSort(sortedArrayInsertionSort);
             endTime = System.currentTimeMillis();
             System.out.println("InsertionSort: " + (endTime - startTime) + " milliseconds");
             
@@ -32,7 +33,7 @@ public class TimeSortingAlgorithm {
 
             startTime = System.currentTimeMillis();
             int[] sortedArraySelectionSort = Arrays.copyOf(array, array.length);
-            SelectionSort.selectionSort(sortedArraySelectionSort);
+            //SelectionSort.selectionSort(sortedArraySelectionSort);
             endTime = System.currentTimeMillis();
             System.out.println("SelectionSort: " + (endTime - startTime) + " milliseconds");
 
@@ -58,21 +59,31 @@ public class TimeSortingAlgorithm {
             int[] sortedArrayThreeWayQuickSort = Arrays.copyOf(array, array.length);
             ThreeWayQuickSort.QuickSort(sortedArrayThreeWayQuickSort, 0, sortedArrayThreeWayQuickSort.length -1);
             endTime = System.currentTimeMillis();
-            System.out.println("Three way QuickSort :" + (endTime - startTime) + " milliseconds");
+            System.out.println("Three way QuickSort: " + (endTime - startTime) + " milliseconds");
 
 
             //ShellSort (Task 2)
-
+            startTime = System.currentTimeMillis();
+            int[] sortedArrayShellSort = Arrays.copyOf(array, array.length);
+            ShellSort.shellSort(sortedArrayShellSort);
+            endTime = System.currentTimeMillis();
+            System.out.println("ShellSort: " + (endTime - startTime) + " milliseconds");
 
 
             //MergeSort (Task 2)
+            startTime = System.currentTimeMillis();
+            int[] sortedArrayMergeSort = Arrays.copyOf(array, array.length);
+            MergeSort.sort(sortedArrayShellSort,0,sortedArrayMergeSort.length-1);
+            endTime = System.currentTimeMillis();
+            System.out.println("MergeSort: " + (endTime - startTime) + " milliseconds");
+
 
             System.out.println("---------------------------------------------");
         }
     }
 
     // Method to read array from file
-    private static int[] readArrayFromFile(String fileName) {
+    public static int[] readArrayFromFile(String fileName) {
         try {
             List<Integer> numbersList = new ArrayList<>();
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
@@ -93,5 +104,6 @@ public class TimeSortingAlgorithm {
             return null;
         }
     }
+
 }
 

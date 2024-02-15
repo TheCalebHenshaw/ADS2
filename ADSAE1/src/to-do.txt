@@ -1,7 +1,7 @@
 Task 1:
-A is complete (QuickSort with Partition)
-B is complete (QuickSort with InsertionSort)
-C is complete (not tested)
+A is complete (QuickSort with Partition) Tested and works
+B is complete (QuickSort with InsertionSort) Tested and works
+C is complete (QuickSort Threeway) Tested and works
 
 
 
@@ -21,5 +21,8 @@ Write the ShellSort, SelecitonSort and MergeSort and InsertionSort
 
 
 Task 3:
-(A)
-(B) - Merge sort but take down a smaller run time, O(log n + n)?
+(A) Completed and explained in the document
+(B) - Merge sort but take down a smaller run time, O(n)? The TaskThreeB.java is not working. The array needs to be reversed.
+
+
+REMOVE PATH ON SUBMISSION

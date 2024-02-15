@@ -57,10 +57,6 @@ public class QuickSort {
 
     }
     public static void main(String[] args){
-        int[] lst = {6,2,78,23,2,57,2,8};
-        quicksortpart(lst,0,7);
-        for(int num : lst){
-            System.out.print(num + ",");
-        }
+        //Use this to test inside the class
     }
 }

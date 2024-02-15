@@ -1,7 +1,7 @@
 Task 1:
 A is complete
 B is complete (not tested)
-C not complete
+C is complete (not tested)
 
 
 
@@ -9,6 +9,8 @@ C not complete
 Task 2:
 Organize the sorts so that its easy to compare them together
 Write the ShellSort, SelecitonSort and MergeSort and InsertionSort
+- InsertionSort is written in the QuickSort.java
+
 
 
 

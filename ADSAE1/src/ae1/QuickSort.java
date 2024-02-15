@@ -52,11 +52,17 @@ public class QuickSort {
 
         }
         if(first){
-            insertionsort(A);
+            InsertionSort.insertionSort(A);;
         }
 
     }
     public static void main(String[] args){
         //Use this to test inside the class
+        int[] A = {5,3,56,8,9,6,4,2,1,3,4,6,8,5,7,1,5,3,7,8,9};
+        quickSortWithInsertion(A, 0, A.length -1, 10, true);
+        for(int a : A){
+            System.out.print(a + ",");
+        }
+
     }
 }

@@ -1,6 +1,6 @@
 Task 1:
-A is complete
-B is complete (not tested)
+A is complete (QuickSort with Partition)
+B is complete (QuickSort with InsertionSort)
 C is complete (not tested)
 
 
@@ -9,7 +9,11 @@ C is complete (not tested)
 Task 2:
 Organize the sorts so that its easy to compare them together
 Write the ShellSort, SelecitonSort and MergeSort and InsertionSort
-- InsertionSort is written in the QuickSort.java
+- SelectionSort is written
+- InsertionSort is written
+- MergeSort is written
+- ShellSort is written
+
 
 
 

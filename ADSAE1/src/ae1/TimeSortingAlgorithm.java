@@ -3,19 +3,15 @@ package ae1;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.nio.file.*;
 
 public class TimeSortingAlgorithm {
     public static void main(String[] args) {
-        String[] fileNames = {"int10.txt", "int50.txt"}; // List of file names to read arrays from
-        //QuickSort (with partition)
-        //QuickSort (with insertion)
-        //3-Way Quicksort
-        //ShellSort
-        //SelectionSort
-        //MergeSort
-        //Task 3 Merge Sort
-        // Loop through each file name
+        String[] fileNames = {"C:/Users/Caleb/Workspace/ADS2/ADSAE1/src/ae1/dutch.txt"}; // List of file names to read arrays from
+
         for (String fileName : fileNames) {
             System.out.println("Time taken to sort " + fileName + ":");
 
@@ -23,12 +19,16 @@ public class TimeSortingAlgorithm {
             int[] array = readArrayFromFile(fileName);
 
             // Measure time taken by each sorting algorithm
+
+            //Insertion Sort (Task 2)
             long startTime, endTime;
             startTime = System.currentTimeMillis();
             int[] sortedArrayInsertionSort = Arrays.copyOf(array, array.length);
             InsertionSort.insertionSort(sortedArrayInsertionSort);
             endTime = System.currentTimeMillis();
             System.out.println("InsertionSort: " + (endTime - startTime) + " milliseconds");
+            
+            //SelectionSort (Task 2)
 
             startTime = System.currentTimeMillis();
             int[] sortedArraySelectionSort = Arrays.copyOf(array, array.length);
@@ -36,7 +36,36 @@ public class TimeSortingAlgorithm {
             endTime = System.currentTimeMillis();
             System.out.println("SelectionSort: " + (endTime - startTime) + " milliseconds");
 
-            // Add more sorting algorithms as needed
+            //QuickSort with Partition (Task 1 A)
+
+            startTime = System.currentTimeMillis();
+            int[] sortedArrayQuickSortPartition = Arrays.copyOf(array, array.length);
+            QuickSort.quicksortpart(sortedArrayQuickSortPartition, 0, sortedArrayQuickSortPartition.length -1);
+            endTime = System.currentTimeMillis();
+            System.out.println("QuickSort with Partition: " + (endTime - startTime) + " milliseconds");
+
+            //QuickSort with InsertionSort (Task 1 B)
+
+            startTime = System.currentTimeMillis();
+            int[] sortedArrayQuickSortInsertion = Arrays.copyOf(array, array.length);
+            QuickSort.quickSortWithInsertion(sortedArrayQuickSortInsertion, 0, sortedArrayQuickSortInsertion.length -1, 100, true);;
+            endTime = System.currentTimeMillis();
+            System.out.println("QuickSort with Insertion: " + (endTime - startTime) + " milliseconds");
+
+            //Three Way Quick Sort (Task 1 C)
+
+            startTime = System.currentTimeMillis();
+            int[] sortedArrayThreeWayQuickSort = Arrays.copyOf(array, array.length);
+            ThreeWayQuickSort.QuickSort(sortedArrayThreeWayQuickSort, 0, sortedArrayThreeWayQuickSort.length -1);
+            endTime = System.currentTimeMillis();
+            System.out.println("Three way QuickSort :" + (endTime - startTime) + " milliseconds");
+
+
+            //ShellSort (Task 2)
+
+
+
+            //MergeSort (Task 2)
 
             System.out.println("---------------------------------------------");
         }
@@ -45,14 +74,19 @@ public class TimeSortingAlgorithm {
     // Method to read array from file
     private static int[] readArrayFromFile(String fileName) {
         try {
+            List<Integer> numbersList = new ArrayList<>();
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
-            String line = reader.readLine();
-            String[] numbers = line.split("\\s+");
-            int[] array = new int[numbers.length];
-            for (int i = 0; i < numbers.length; i++) {
-                array[i] = Integer.parseInt(numbers[i]);
+            String line;
+            while((line = reader.readLine()) != null){
+                int number = Integer.parseInt(line.trim());
+                numbersList.add(number);
             }
+
             reader.close();
+            int[] array = new int[numbersList.size()];
+            for(int i = 0; i < numbersList.size();i++){
+                array[i] = numbersList.get(i);
+            }
             return array;
         } catch (IOException e) {
             e.printStackTrace();

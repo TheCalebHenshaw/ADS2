@@ -2,6 +2,8 @@ package ae1;
 
 import java.util.Arrays;
 
+//PART 3 TASK A
+
 public class DescendingMergeSort {
     public static void mergeSortDescending(int[] arr, int low, int high) {
         if (low < high) {
@@ -47,5 +49,11 @@ public class DescendingMergeSort {
     public static int[] findILargestElements(int[] arr, int i) {
         mergeSortDescending(arr, 0, arr.length - 1);
         return Arrays.copyOfRange(arr, 0, i);
+    }
+    public static void main(String [] args){
+        int[] arr = {1,5,8,2,4,2};
+
+        int[] sortedArr = findILargestElements(arr, 3);
+        System.out.println(Arrays.toString(sortedArr));
     }
 }

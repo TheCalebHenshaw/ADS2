@@ -9,9 +9,9 @@ import java.util.List;
 import java.nio.file.*;
 
 public class TimeSortingAlgorithm {
-    static String path = "C:/Users/Caleb/Workspace/ADS2/ADSAE1/src/ae1/"; //remove on submission
+    static String path = "ADSAE1\\src\\ae1\\"; 
     public static void main(String[] args) {
-        String[] fileNames = {"dutch.txt"}; // List of file names to read arrays from
+        String[] fileNames = {"int1000.txt","Bad.txt","dutch.txt","int20k.txt","int500k.txt","intBig.txt"}; // List of file names to read arrays from
 
         for (String fileName : fileNames) {
             System.out.println("Time taken to sort " + fileName + ":");
@@ -25,7 +25,7 @@ public class TimeSortingAlgorithm {
             long startTime, endTime;
             startTime = System.currentTimeMillis();
             int[] sortedArrayInsertionSort = Arrays.copyOf(array, array.length);
-            //InsertionSort.insertionSort(sortedArrayInsertionSort);
+            InsertionSort.insertionSort(sortedArrayInsertionSort);
             endTime = System.currentTimeMillis();
             System.out.println("InsertionSort: " + (endTime - startTime) + " milliseconds");
             
@@ -33,7 +33,7 @@ public class TimeSortingAlgorithm {
 
             startTime = System.currentTimeMillis();
             int[] sortedArraySelectionSort = Arrays.copyOf(array, array.length);
-            //SelectionSort.selectionSort(sortedArraySelectionSort);
+            SelectionSort.selectionSort(sortedArraySelectionSort);
             endTime = System.currentTimeMillis();
             System.out.println("SelectionSort: " + (endTime - startTime) + " milliseconds");
 
@@ -73,12 +73,13 @@ public class TimeSortingAlgorithm {
             //MergeSort (Task 2)
             startTime = System.currentTimeMillis();
             int[] sortedArrayMergeSort = Arrays.copyOf(array, array.length);
-            MergeSort.sort(sortedArrayShellSort,0,sortedArrayMergeSort.length-1);
+            MergeSort.sort(sortedArrayMergeSort,0,sortedArrayMergeSort.length-1);
             endTime = System.currentTimeMillis();
             System.out.println("MergeSort: " + (endTime - startTime) + " milliseconds");
 
 
             System.out.println("---------------------------------------------");
+
         }
     }
 
@@ -106,4 +107,3 @@ public class TimeSortingAlgorithm {
     }
 
 }
-

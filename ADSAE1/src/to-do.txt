@@ -29,5 +29,123 @@ Use heap sort to sort for the complexity of (o log i) which is smaller because i
 
 
 
-Before submission:
-REMOVE PATH ON SUBMISSION
+
+
+
+
+
+Bad.txt: 
+
+InsertionSort: 49 milliseconds 
+
+SelectionSort: 80 milliseconds 
+
+QuickSort with Partition: 3 milliseconds 
+
+QuickSort with Insertion: 3 milliseconds 
+
+Three way QuickSort: 6 milliseconds 
+
+ShellSort: 4 milliseconds 
+
+MergeSort: 3 milliseconds 
+
+ 
+
+Time taken to sort dutch.txt: 
+
+InsertionSort: 57684 milliseconds 
+
+SelectionSort: 51823 milliseconds 
+
+QuickSort with Partition: 227 milliseconds 
+
+QuickSort with Insertion: 246 milliseconds 
+
+Three way QuickSort: 25 milliseconds 
+
+ShellSort: 30 milliseconds 
+
+MergeSort: 47 milliseconds 
+
+ 
+
+ 
+
+intBig.txt: 
+
+InsertionSort: 257302 milliseconds 
+
+SelectionSort: 208028 milliseconds 
+
+QuickSort with Partition: 70 milliseconds 
+
+QuickSort with Insertion: 61 milliseconds 
+
+Three way QuickSort: 62 milliseconds 
+
+ShellSort: 118 milliseconds 
+
+MergeSort: 109 milliseconds 
+
+ 
+
+ 
+
+ 
+
+int20k.txt: 
+
+InsertionSort: 107 milliseconds 
+
+SelectionSort: 78 milliseconds 
+
+QuickSort with Partition: 3 milliseconds 
+
+QuickSort with Insertion: 2 milliseconds 
+
+Three way QuickSort: 4 milliseconds 
+
+ShellSort: 5 milliseconds 
+
+MergeSort: 3 milliseconds 
+
+ 
+
+int500k.txt: 
+
+InsertionSort: 64233 milliseconds 
+
+SelectionSort: 51880 milliseconds 
+
+QuickSort with Partition: 35 milliseconds 
+
+QuickSort with Insertion: 29 milliseconds 
+
+Three way QuickSort: 34 milliseconds 
+
+ShellSort: 65 milliseconds 
+
+MergeSort: 60 milliseconds 
+
+ 
+
+Int1000.txt 
+
+InsertionSort: 2 milliseconds 
+
+SelectionSort: 2 milliseconds 
+
+QuickSort with Partition: 0 milliseconds 
+
+QuickSort with Insertion: 0 milliseconds 
+
+Three way QuickSort: 1 milliseconds 
+
+ShellSort: 1 milliseconds 
+
+MergeSort: 0 milliseconds 
+
+ 
+
+ 

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 //PART 3 TASK A
 
-public class DescendingMergeSort {
+public class TaskThreeA {
     public static void mergeSortDescending(int[] arr, int low, int high) {
         if (low < high) {
             int mid = low + (high - low) / 2;

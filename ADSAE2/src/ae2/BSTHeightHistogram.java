@@ -10,16 +10,17 @@ import java.util.Scanner;
 public class BSTHeightHistogram {
     
 
-
+    private static List<Float> heights = new ArrayList<>();
 
     public static void printHistogram(int n){
-        float avgHeight;
+        
+        float avgHeight = 0;
         System.out.println("Height     Frequency");
         System.out.println("----------------------");
         for(int i = 0; i < n; i++){
             System.out.println(i+"       int result goes here");
         }
-        System.out.println("\n" +"Average height of BSTs:" + " some float here");
+        System.out.println("\n" +"Average height of BSTs:" + avgHeight);
     }
 
     public static void main(String[] args){
@@ -40,7 +41,7 @@ public class BSTHeightHistogram {
         }
 
     }
-    public static int getBSTHeight(){
-        return 0;
+    public static void getBSTHeight(int n){
+        heights.add(1.5f);
     }
 }

@@ -15,8 +15,10 @@ public class BSTHeightHistogram {
     public static void printHistogram(int n){
         
         float avgHeight = 0;
+        int[] frequency = new int[n+1];
         System.out.println("Height     Frequency");
         System.out.println("----------------------");
+        
         for(int i = 0; i < n; i++){
             System.out.println(i+"       int result goes here");
         }

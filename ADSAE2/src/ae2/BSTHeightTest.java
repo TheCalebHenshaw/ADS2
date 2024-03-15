@@ -1,130 +1,123 @@
 package ae2;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
-
-
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class BSTHeightTest {
     public static void main(String[] args) {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Enter a positive integer n: ");
-            int n = scanner.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a positive integer n: ");
+        int n = scanner.nextInt();
+        scanner.close();
 
-            List<Integer> values = new ArrayList<>();
-            for (int i = 1; i <= n; i++) {
-                values.add(i);
+        int[] heights = new int[n + 1];
+        long totalHeight = 0;
+        long totalPermutations = factorial(n);
+
+        // Generate all permutations of {1, 2, ..., n}
+        List<List<Integer>> permutations = generatePermutations(n);
+
+        // Compute BST heights for each permutation
+        for (List<Integer> permutation : permutations) {
+            BST bst = new BST();
+            for (int num : permutation) {
+                bst.insert(num);
             }
+            int height = bst.getHeight();
+            heights[height]++;
+            totalHeight += height;
+        }
 
-            List<Integer> heights = new ArrayList<>();
-            long totalHeight = 0;
-
-            int factorial = factorial(n);
-            for (int i = 0; i < factorial; i++) {
-                Collections.shuffle(values);
-                BinarySearchTree bst = new BinarySearchTree();
-                for (int value : values) {
-                    bst.insert(value);
-                }
-                int height = bst.height();
-                heights.add(height);
-                totalHeight += height;
+        // Print histogram
+        System.out.println("Height\tFrequency");
+        for (int i = 0; i <= n; i++) {
+            if (heights[i] != 0) {
+                System.out.println(i + "\t\t" + heights[i]);
             }
+        }
 
-            System.out.println("Height Frequency");
-            System.out.println("----------------");
-            int[] frequency = new int[n + 1];
-            for (int height : heights) {
-                frequency[height]++;
-            }
-            for (int h = 1; h <= n; h++) {
-                System.out.println(h + " " + frequency[h]);
-            }
+        // Calculate and print average height
+        double averageHeight = (double) totalHeight / totalPermutations;
+        averageHeight -=1.0;
+        System.out.println("Average Height: " + averageHeight);
+    }
 
-            double averageHeight = (double) totalHeight / factorial;
-            System.out.println("Average height of BSTs: ");
-            System.out.println(averageHeight);
+    // Generate all permutations of {1, 2, ..., n}
+    private static List<List<Integer>> generatePermutations(int n) {
+        List<List<Integer>> permutations = new ArrayList<>();
+        List<Integer> nums = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            nums.add(i);
+        }
+        permute(nums, 0, permutations);
+        return permutations;
+    }
+
+    private static void permute(List<Integer> nums, int start, List<List<Integer>> permutations) {
+        if (start == nums.size() - 1) {
+            permutations.add(new ArrayList<>(nums));
+        } else {
+            for (int i = start; i < nums.size(); i++) {
+                Collections.swap(nums, start, i);
+                permute(nums, start + 1, permutations);
+                Collections.swap(nums, start, i);
+            }
         }
     }
 
-    private static int factorial(int n) {
-        if (n == 0 || n == 1) {
-            return 1;
+    // Factorial function
+    private static long factorial(int n) {
+        long fact = 1;
+        for (int i = 2; i <= n; i++) {
+            fact *= i;
         }
-        return n * factorial(n - 1);
-    }
-}
-
-class TreeNode {
-    int val;
-    TreeNode left, right;
-
-    public TreeNode(int val) {
-        this.val = val;
-        left = null;
-        right = null;
-    }
-}
-
-class BinarySearchTree {
-    TreeNode root;
-
-    public BinarySearchTree() {
-        root = null;
+        return fact;
     }
 
-    public void insert(int val) {
-        root = insertRec(root, val);
-    }
+    // Binary Search Tree (BST) class
+    static class BST {
+        Node root;
 
-    private TreeNode insertRec(TreeNode root, int val) {
-        if (root == null) {
-            root = new TreeNode(val);
+        static class Node {
+            int data;
+            Node left, right;
+
+            Node(int data) {
+                this.data = data;
+                left = right = null;
+            }
+        }
+
+        // Insert a node in BST
+        void insert(int data) {
+            root = insertRec(root, data);
+        }
+
+        Node insertRec(Node root, int data) {
+            if (root == null) {
+                root = new Node(data);
+                return root;
+            }
+
+            if (data < root.data) {
+                root.left = insertRec(root.left, data);
+            } else if (data > root.data) {
+                root.right = insertRec(root.right, data);
+            }
+
             return root;
         }
 
-        if (val < root.val) {
-            root.left = insertRec(root.left, val);
-        } else if (val > root.val) {
-            root.right = insertRec(root.right, val);
+        // Get height of BST
+        int getHeight() {
+            return getHeightRec(root);
         }
 
-        return root;
-    }
-
-    public int height() {
-        return heightRec(root);
-    }
-
-    private int heightRec(TreeNode root) {
-        if (root == null) {
-            return 0;
-        } else {
-            int leftHeight = heightRec(root.left);
-            int rightHeight = heightRec(root.right);
-
-            if (leftHeight > rightHeight) {
-                return leftHeight + 1;
-            } else {
-                return rightHeight + 1;
+        int getHeightRec(Node root) {
+            if (root == null) {
+                return 0;
             }
+            int leftHeight = getHeightRec(root.left);
+            int rightHeight = getHeightRec(root.right);
+            return Math.max(leftHeight, rightHeight) + 1;
         }
     }
 }
-
-
-
-
-
